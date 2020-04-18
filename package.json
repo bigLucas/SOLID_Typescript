@@ -1,0 +1,24 @@
+{
+  "name": "solid_with_typescript",
+  "version": "1.0.0",
+  "description": "Typescript SOLID exercises",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "keywords": [
+    "typescript",
+    "SOLID",
+    "OOP",
+    "clean-code"
+  ],
+  "author": "Lucas Ferreira",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-loader": "^7.0.0",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  }
+}
