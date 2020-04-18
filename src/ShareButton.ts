@@ -1,8 +1,13 @@
+import EventHandler from './EventHandler';
+
 export default class ShareButton {
     url: string;
+    eventHandler: EventHandler;
 
     constructor(url: string) {
         this.url = url;
+        // quebra o principio dependency inversion
+        this.eventHandler = new EventHandler();
     }
 
     // esta classe possui motivos para mudar
@@ -18,8 +23,6 @@ export default class ShareButton {
         if (socialNetwork === 'linkedin') {
             link = `https://linkedin.com/shareArticle?url=${this.url}`;
         }
-        // acoplamento com o DOM
-        const elements = document.querySelectorAll(className);
-        elements.forEach(element => element.addEventListener('click', () => window.open(link)));
+       this.eventHandler.addEventListenerToClass(className, 'click', () => window.open(link));
     }
 }
