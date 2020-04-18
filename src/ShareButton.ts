@@ -12,6 +12,7 @@ export default class ShareButton {
 
     // esta classe possui motivos para mudar
     // caso seja adicionado novas redes socias precisa implementar novos metodos
+    // quebra o principio do open-closed
     bind(className: string, socialNetwork: string) {
         let link: string;
         if (socialNetwork === 'twitter') {
