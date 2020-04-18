@@ -9,5 +9,5 @@ const facebook = new ShareButtonFacebook('.btn-facebook', 'https://www.youtube.c
 facebook.bind();
 const linkedin = new ShareButtonLinkedin('.btn-linkedin', 'https://www.youtube.com/channel/UCYfxHCKSqBMbRqTf8kH9xgA');
 linkedin.bind();
-const print = new ShareButtonPrint('.btn-print', 'https://www.youtube.com/channel/UCYfxHCKSqBMbRqTf8kH9xgA');
+const print = new ShareButtonPrint('.btn-print');
 print.bind();

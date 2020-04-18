@@ -4,23 +4,21 @@ import EventHandler from './EventHandler';
 // instanciavel, ela precisa ser extendida em outra classe
 // que vai implementar os métodos
 export default abstract class AbstractShareButton {
-    url: string;
     eventHandler: EventHandler;
     className: string;
 
-    constructor(className: string, url: string) {
-        this.url = url;
+    constructor(className: string) {
         this.className = className;
         // quebra o principio dependency inversion
         this.eventHandler = new EventHandler();
     }
 
-    abstract createLink(): string;
+    abstract createAction(): () => Window | null | void;
 
     // padrão de projeto, template methods, montar uma logica na super classe
     // e delegar a implementação para as subclasses
     bind() {
-        const link = this.createLink();
-        this.eventHandler.addEventListenerToClass(this.className, 'click', () => window.open(link));
+        const action = this.createAction();
+        this.eventHandler.addEventListenerToClass(this.className, 'click', action);
     }
 }
