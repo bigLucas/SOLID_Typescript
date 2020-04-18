@@ -7,10 +7,11 @@ export default abstract class AbstractShareButton {
     eventHandler: EventHandler;
     className: string;
 
-    constructor(className: string) {
+    // injeção de dependencia
+    // a classe depende de EventHandler e não conhece as implementações de event handler
+    constructor(eventHandler: EventHandler, className: string) {
         this.className = className;
-        // quebra o principio dependency inversion
-        this.eventHandler = new EventHandler();
+        this.eventHandler = eventHandler;
     }
 
     abstract createAction(): () => Window | null | void;

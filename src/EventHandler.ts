@@ -1,6 +1,3 @@
-export default class EventHandler {
-    addEventListenerToClass(className: string, event: string, fn: any) {
-        const elements = document.querySelectorAll(className);
-        elements.forEach(element => element.addEventListener(event, fn));
-    }
+export default interface EventHandler {
+    addEventListenerToClass(className: string, event: string, fn: any): void;
 }
