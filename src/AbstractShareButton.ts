@@ -1,14 +1,14 @@
 import EventHandler from './EventHandler';
 
-// usando o abstract a gente não deixa que a classe seja
-// instanciavel, ela precisa ser extendida em outra classe
-// que vai implementar os métodos
+// Using abstract, the class connot be instantiated, it must be
+// extended in another class that will implement the abstract methods
 export default abstract class AbstractShareButton {
     eventHandler: EventHandler;
     className: string;
 
-    // injeção de dependencia
-    // a classe depende de EventHandler e não conhece as implementações de event handler
+    // dependency injection
+    // The class depends on EventHandler and 
+    // doesn't know the implementation of EventHandler 
     constructor(eventHandler: EventHandler, className: string) {
         this.className = className;
         this.eventHandler = eventHandler;
@@ -16,8 +16,8 @@ export default abstract class AbstractShareButton {
 
     abstract createAction(): () => Window | null | void;
 
-    // padrão de projeto, template methods, montar uma logica na super classe
-    // e delegar a implementação para as subclasses
+    // design pattern, template methods, a logic in super class
+    // and delegate the implementation to the cubclasses
     bind() {
         const action = this.createAction();
         this.eventHandler.addEventListenerToClass(this.className, 'click', action);
